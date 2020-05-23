@@ -1,0 +1,21 @@
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+  nav{
+      background-color: black;
+  }
+  h1{
+      text-align: center;
+  }
+  .page-footer{
+      text-align: center;
+    background-color: black; 
+  }
+img{
+    width:100%;
+}
+  main {
+    flex: 1 0 auto;
+  }
