@@ -6,23 +6,40 @@ body {
   nav{
       background-color: black;
   }
-
-  h1{
-      text-align: center;
-      z-index: 1;
-  }
   .page-footer{
-      text-align: center;
     background-color: black; 
   }
-img{
-    max-width: 100%;
+  .page-footer .container{
+    text-align: center; 
+    color: white;
+  }
+
+.container-fluid{
+    width: 100%;
     height:auto;
+    margin:0;
+    left: 0px;
+    top: 200px;
+    z-index: auto;
+    position: relative;
+    text-align: center;
+    color: black;
+    
+  }
+.centered {
+    top:30%;
+    width:100%;
     position: absolute;
-  left: 0px;
-  top: 0px;
-  z-index: -1;
-}
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-shadow: 2px 2px teal;
+  }
+  .centered p{
+      font-size:30px;
+      text-align: center;
+  }
   main {
     flex: 1 0 auto;
   }
+  
