@@ -1,6 +1,7 @@
 var express = require("express");
 var logger = require("morgan");
 var mongoose = require("mongoose");
+var exphbs = require("express-handlebars");
 
 // Our scraping tools
 // Axios is a promised-based http library, similar to jQuery's Ajax method
@@ -33,8 +34,38 @@ var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines
 
 mongoose.connect(MONGODB_URI);
 
+// Handlebars
+app.engine(
+    "handlebars",
+    exphbs({
+      defaultLayout: "main"
+    })
+  );
+  app.set("view engine", "handlebars");
+  
+  // Routes
+//   require("./routes/apiRoutes")(app);
+//   require("./routes/htmlRoutes")(app);
 // Routes
-
+app.get("/", function(req, res) {
+    db.Article.find({saved:false}, function(error,data){
+        var hbsObject = {
+            article: data
+        }
+        console.log(hbsObject)
+          res.render("index", hbsObject) 
+        })
+    })
+   app.get("/saved", function(req,res){
+       db.Article.find({saved:true}).populate("notes")
+       .then(function(error, articles){
+        var hbsObject = {
+            article: articles
+        }
+        console.log(hbsObject)
+          res.render("saved", hbsObject) 
+       })
+   })
 // A GET route for scraping the echoJS website
 app.get("/scrape", function (req, res) {
   // First, we grab the body of the html with axios
@@ -87,7 +118,28 @@ app.get("/articles", function (req, res) {
       res.json(err)
     })
 });
-
+//Save article
+app.post("/articles/save/:id", function(req, res){
+    db.Article.findOneAndUpdate({_id: req.params.id}, {saved: true})
+    .then(function(error, document){
+        if(err){
+            console.log(err);
+        }else{
+            res.send(document)
+        }
+    })
+})
+//Delete an article
+app.post("/articles/delete/:id", function(req, res){
+db.Article.findOneAndUpdate({_id: req.params.id}, {saved:false, notes: []})
+.then(function(error, document){
+    if(error){
+        console.log(error)
+    }else{
+        res.send(document)
+    }
+})
+})
 // Route for grabbing a specific Article by id, populate it with it's note
 app.get("/articles/:id", function (req, res) {
   // TODO
