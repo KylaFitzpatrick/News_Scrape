@@ -43,12 +43,15 @@ app.get("/scrape", function (req, res) {
     var $ = cheerio.load(response.data);
 
     // Now, we grab every h2 within an article tag, and do the following:
-    $("ul li.dynamic-river__item .dynamic-river__header").each(function (i, element) {
+    $("ul li.dynamic-river__item ").each(function (i, element) {
       // Save an empty result object
       var result = {};
 
       // Add the text and href of every link, and save them as properties of the result object
       result.title = $(this)
+        .children(".dynamic-river__header").children("a")
+        .text();
+        result.summary = $(this)
         .children("a")
         .text();
       result.link = $(this)
