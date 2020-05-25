@@ -56,10 +56,10 @@
             <a href="#!" class="brand-logo">Mongo Scraper</a>
             <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
             <ul class="right hide-on-med-and-down">
-                <li><a href="sass.html">Home</a></li>
+                <li><a href="./index.html">Home</a></li>
                 <li><a href="badges.html">Saved Articles</a></li>
-                <li><a class="waves-effect waves-light btn">Scrape new articles</a></li>
-                <li><a class="waves-effect waves-light btn">Clear articles</a></li>
+                <li><a class="waves-effect waves-light btn scrape">Scrape new articles</a></li>
+                <li><a class="waves-effect waves-light btn clear">Clear articles</a></li>
 
             </ul>
         </div>
@@ -68,8 +68,8 @@
     <ul class="sidenav" id="mobile-demo">
         <li><a href="#">Home</a></li>
         <li><a href="#">Saved Articles</a></li>
-        <li><a class="waves-effect waves-light btn">Scrape new articles</a></li>
-        <li><a class="waves-effect waves-light btn">Clear articles</a></li>
+        <li><a class="waves-effect waves-light btn scrape">Scrape new articles</a></li>
+        <li><a class="waves-effect waves-light btn clear">Clear articles</a></li>
     </ul>
 
     <div class="row">
@@ -87,7 +87,7 @@
 
     <div id="articles"></div>
     <div id="notes"></div>
-    
+          
     <footer class="page-footer">
         <div class="footer-copyright">
             <div class="container">
@@ -95,12 +95,11 @@
             </div>
         </div>
     </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script>$(document).ready(function () {
             $('.sidenav').sidenav();
-        });
-        $(document).ready(function () {
-            $('.parallax').parallax();
+            // $('.parallax').parallax();
         });
     </script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

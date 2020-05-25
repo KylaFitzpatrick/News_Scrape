@@ -4,7 +4,7 @@ $.getJSON("/articles", function(data) {
     for (var i = 0; i < data.length; i++) {
       // Display the apropos information on the page
     //   $("#articles").append("<p data-id='" + data[i]._id + "'>" + data[i].title + "<br />" + data[i].summary + "<br />"+ "https://www.sfchronicle.com" + data[i].link + "</p>");
-    $("#articles").append("<div class='row'> <div class='col s12'> <div class='card blue-grey darken-1'> <div class='card-content white-text'> <span class='card-title'>" + data[i].title + "</span>" + data[i].summary + "<br />" + "https://www.sfchronicle.com" + data[i].link + "</div> <div class='card-action'> <a href='#'>This is a link</a> <a href='#'>This is a link</a> </div> </div> </div> </div>")
+    $("#articles").append("<div class='row'> <div class='col s12'> <div class='card black darken-1'> <div class='card-content white-text'> <span class='card-title'>" + data[i].title + "</span>" + data[i].summary + "<br />" + "https://www.sfchronicle.com" + data[i].link + "</div> <div class='card-action'> <a class='waves-effect waves-light btn clear'>Save Article</a></div> </div> </div> </div>")
     }
   });
   
