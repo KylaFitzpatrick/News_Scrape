@@ -23,7 +23,7 @@
                                         {{!-- <a data-id={{this._id}}class='waves-effect waves-light btn save'>Article Notes</a> --}}
 <!-- Modal Trigger -->
   <button data-id={{this._id}} data-target="modal1" class="btn modal-trigger">Article Notes</button>
-                    <a data-id={{this._id}}class='waves-effect waves-light btn save'>Delete Article</a>
+                    <button data-id={{this._id}} class='waves-effect waves-light btn delete'>Delete Article</button>
                     </div> 
                     </div> 
                     </div> 
@@ -42,10 +42,10 @@
       <ul id="list">
 
       </ul>
-      <textarea class="materialize-textarea"></textarea>
+      <textarea placeholder="New Note" id="notemsg" class="materialize-textarea"></textarea>
     </div>
     <div class="modal-footer">
-      <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+      <a class="modal-close waves-effect waves-light btn savenote">Save note</a>
     </div>
   </div>
           
