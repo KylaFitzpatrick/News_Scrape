@@ -1,23 +1,3 @@
-   <nav>
-        <div class="nav-wrapper">
-            <a href="#!" class="brand-logo">Mongo Scraper</a>
-            <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-            <ul class="right hide-on-med-and-down">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="/saved">Saved Articles</a></li>
-                <li><a class="waves-effect waves-light btn scrape">Scrape new articles</a></li>
-                <li><a class="waves-effect waves-light btn clear">Clear articles</a></li>
-
-            </ul>
-        </div>
-    </nav>
-
-    <ul class="sidenav" id="mobile-demo">
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Saved Articles</a></li>
-        <li><a class="waves-effect waves-light btn scrape">Scrape new articles</a></li>
-        <li><a class="waves-effect waves-light btn clear">Clear articles</a></li>
-    </ul>
 
     <div class="row">
         <div class="col s12">
@@ -32,7 +12,25 @@
         </div>
     </div>
 
-    <div id="articles"></div>
-    <div id="notes"></div>
-
+    <div id="articles">
+        {{#if article}}
+        {{#each article}}
+        <div data-id="{{this._id}}" class='row'> 
+            <div class='col s12'> 
+                <div class='card black darken-1'> <div class='card-content white-text'> <span class='card-title'>{{this.title}}</span>{{this.summary}} <br /> <a target="_blank" href="{{this.link}}"></a>
+                </div> 
+                <div class='card-action'> 
+                    <a data-id="{{this._id}}" class='waves-effect waves-light btn save'>Save Article</a>
+                    </div> 
+                    </div> 
+                    </div> 
+                    </div>
+    </div>
+    {{/each}}
+    {{else}}
+    <div id="notes">
+        <h4>Oops! There are no new articles.</h4>
+    </div>
+    {{/if}}
+  
 

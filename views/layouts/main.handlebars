@@ -6,20 +6,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <!--Import materialize.css-->
-    <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection" />
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" type="text/css" href="./css/styles.css">
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
     <title>Mongo Scraper: SF Chronicle Edition</title>
     
 </head>
 
 <body>
+       <nav>
+        <div class="nav-wrapper">
+            <a href="/" class="brand-logo">Mongo Scraper</a>
+            <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+            <ul class="right hide-on-med-and-down">
+                <li><a href="/">Home</a></li>
+                <li><a href="/saved">Saved Articles</a></li>
+                <li><a class="waves-effect waves-light btn scrape">Scrape new articles</a></li>
+                <li><a class="waves-effect waves-light btn clear">Clear articles</a></li>
+
+            </ul>
+        </div>
+    </nav>
+
+    <ul class="sidenav" id="mobile-demo">
+        <li><a href="/">Home</a></li>
+        <li><a href="/saved">Saved Articles</a></li>
+        <li><a class="waves-effect waves-light btn scrape">Scrape new articles</a></li>
+        <li><a class="waves-effect waves-light btn clear">Clear articles</a></li>
+    </ul>
   {{{body}}}
-    <footer class="page-footer">
+  <footer class="page-footer">
         <div class="footer-copyright">
             <div class="container">
                 © 2020 Copyright Mongo Scraper: SF Chronicle Edition
@@ -30,11 +48,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script>$(document).ready(function () {
             $('.sidenav').sidenav();
-            // $('.parallax').parallax();
+    $('.modal').modal();
         });
     </script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="./javascript/app.js"></script>
+       
+<script src="/javascript/app.js"></script>
 </body>
 
 </html>

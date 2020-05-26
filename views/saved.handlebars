@@ -1,0 +1,53 @@
+
+    <div class="row">
+        <div class="col s12">
+            <div class="container-fluid">
+                <div class="centered">
+                    <h1>Saved Articles</h1>
+                    <p>Your Saved Articles</p>
+                </div>
+            </div>
+            <img src="/images/san-francisco-free-photo-picjumbo-com.jpg" class="responsive-img">
+
+        </div>
+    </div>
+
+    <div id="articles">
+        {{#if article}}
+        {{#each article}}
+        <div data-id={{this._id}} class='row'> 
+            <div class='col s12'> 
+                <div class='card black darken-1'> <div class='card-content white-text'> <span class='card-title'>{{this.title}}</span>{{this.summary}} <br /> <a target="_blank" href="https://www.sfchronicle.com"+{{this.link}}></a>
+                </div> 
+                <div class='card-action'> 
+                                        {{!-- <a data-id={{this._id}}class='waves-effect waves-light btn save'>Article Notes</a> --}}
+<!-- Modal Trigger -->
+  <button data-id={{this._id}} data-target="modal1" class="btn modal-trigger">Article Notes</button>
+                    <a data-id={{this._id}}class='waves-effect waves-light btn save'>Delete Article</a>
+                    </div> 
+                    </div> 
+                    </div> 
+                    </div>
+    </div>
+    {{/each}}
+    {{else}}
+    <div id="notes">
+        <h4>Oops! There are no saved articles.</h4>
+    </div>
+    {{/if}}
+  <!-- Modal Structure -->
+  <div id="modal1" class="modal">
+    <div class="modal-content">
+      <h4 id="title"></h4>
+      <ul id="list">
+
+      </ul>
+      <textarea class="materialize-textarea"></textarea>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+    </div>
+  </div>
+          
+
+
