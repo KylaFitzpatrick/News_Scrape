@@ -113,39 +113,39 @@ db.Note.create(req.body)
   });
 });
 
-// // Create a new note
-// app.put("/notes/save/:id", function(req, res) {
-//   // Create a new note and pass the req.body to the entry
-//   var newNote = new Note({
-//     body: req.body.text,
-//     article: req.params.id
-//   });
-//   console.log(req.body)
-//   // And save the new note the db
-//   newNote.save(function(error, note) {
-//     // Log any errors
-//     if (error) {
-//       console.log(error);
-//     }
-//     // Otherwise
-//     else {
-//       // Use the article id to find and update it's notes
-//       db.Article.findOneAndUpdate({ "_id": req.params.id }, {$push: { "notes": note } })
-//       // Resolve promise
-//       .then(function(err) {
-//         // Log any errors
-//         if (err) {
-//           console.log(err);
-//           res.send(err);
-//         }
-//         else {
-//           // Or send the note to the browser
-//           res.send(note);
-//         }
-//       });
-//     }
-//   });
-// });
+// Create a new note
+app.post("/notes/save/:id", function(req, res) {
+  // Create a new note and pass the req.body to the entry
+  var newNote = new Note({
+    body: req.body.text,
+    article: req.params.id
+  });
+  console.log(req.body)
+  // And save the new note the db
+  newNote.save(function(error, note) {
+    // Log any errors
+    if (error) {
+      console.log(error);
+    }
+    // Otherwise
+    else {
+      // Use the article id to find and update it's notes
+      db.Article.findOneAndUpdate({ "_id": req.params.id }, {$push: { "notes": note } })
+      // Resolve promise
+      .then(function(err) {
+        // Log any errors
+        if (err) {
+          console.log(err);
+          res.send(err);
+        }
+        else {
+          // Or send the note to the browser
+          res.send(note);
+        }
+      });
+    }
+  });
+});
 
 // Delete a note
 app.delete("/notes/delete/:note_id/:article_id", function(req, res) {

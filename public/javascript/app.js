@@ -32,14 +32,9 @@ $(".modal-trigger").on("click", function () {
         console.log(data)
         $("#title").html(data.title.trim())
         for (var i = 0; i < data.note.length; i++) {
-            $("#list").append(`<li>${data.note[i].body}<button data-id="${data._id}" id="delete" class=" red">X</button></li>`)
+            $("#list").append(`<li>${data.note[i].body}<button data-id="${data._id}" data-note-id="${data.note[i]._id}" id="delete" class=" red">X</button></li>`)
         }
-        //Delete item in array
-        for (var i = 0; i < data.length; i++)
-            if (data[i].body === "") {
-                data.splice(i, 1);
-                break;
-            }
+      
         //Add item in a array
 
 
@@ -59,21 +54,19 @@ $(".delete").on("click", function () {
 //Save Note button
 $(".savenote").on("click", function () {
     var thisId = $(this).attr("data-id");
-    if (!$("#notemsg").text()) {
+    if (!$("#notemsg").html("")) {
         alert("please enter a note to save")
     } else {
         $.ajax({
             method: "POST",
             url: "/notes/save/" + thisId,
-            data: {
-                body: $("#notemsg" + thisId).text()
-            }
+            data: $("#notemsg").text()
         }).then(function (data) {
             // Log the response
             console.log(data);
             // Empty the notes section
-            $("#notemsg" + thisId).text("");
-            //   $("#modal1").modal("hide");
+            $("#notemsg" + thisId).empty();
+              $("#modal1").modal("hide");
             res.render("/saved")
         });
     }
@@ -81,12 +74,15 @@ $(".savenote").on("click", function () {
 
 //Delete Note button
 $("#delete").on("click", function () {
-    var thisId = $(this).attr("data-id");
+    var articleId = $(this).attr("data-id");
+    //Delete item in array
+    var noteId = $(this).attr("data-note-id")
     $.ajax({
         method: "DELETE",
-        url: "/notes/delete/" + thisId
+        url: "/notes/delete/" + noteId + "/" + articleId
     }).then(function (data) {
         console.log(data)
+          
         $("#modal1").modal("hide");
         res.render("/saved")
     })
