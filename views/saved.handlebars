@@ -31,9 +31,29 @@
     </div>
     {{/each}}
     {{else}}
-    <div id="notes">
-        <h4>Oops! There are no saved articles.</h4>
+        <div class="row">
+    <div class="col s12">
+      <div class="card teal darken-1">
+        <div class="card-content white-text">
+          <span class="card-title"><h4>Oops! There are no saved articles.</h4>
+</span>
+          <p></p>
     </div>
+    </div>
+    </div>
+    </div>
+        <div class="row">
+    <div class="col s12">
+      <div class="card black darken-1">
+        <div class="card-content white-text">
+          <span class="card-title">What would you like to do?
+</span>
+          <p><a href="/">Browse more articles</a></p>
+    </div>
+    </div>
+    </div>
+    </div>
+   
     {{/if}}
   <!-- Modal Structure -->
   {{#if article}}

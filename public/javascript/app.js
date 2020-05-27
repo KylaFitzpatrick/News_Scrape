@@ -1,7 +1,7 @@
 
 //Scrape button
 $(".scrape").on("click", function () {
-    $ajax({
+    $.ajax({
         method: "GET",
         url: "/scrape"
     }).then(function (data) {
@@ -87,3 +87,13 @@ $(document).on("click", ".red", function (event) {
         res.render("/saved")
     })
 });
+
+$(".clear").on("click", function (){
+    $.ajax({
+        method: "GET",
+        url: "/clear"
+    }).then(function (data) {
+        console.log(data)
+        $("#articles").empty();
+    })
+})
