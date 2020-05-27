@@ -34,10 +34,6 @@ $(".modal-trigger").on("click", function () {
         for (var i = 0; i < data.note.length; i++) {
             $("#list").append(`<li>${data.note[i].body}<button data-id="${data._id}" data-note-id="${data.note[i]._id}" id="delete" class=" red">X</button></li>`)
         }
-      
-        //Add item in a array
-
-
     })
 })
 //Delete Article button
@@ -54,22 +50,30 @@ $(".delete").on("click", function () {
 //Save Note button
 $(".savenote").on("click", function () {
     var thisId = $(this).attr("data-id");
-    if (!$("#notemsg").html("")) {
-        alert("please enter a note to save")
-    } else {
+    
         $.ajax({
-            method: "POST",
+            method: "PUT",
             url: "/notes/save/" + thisId,
-            data: $("#notemsg").text()
+            data: {
+                body: $("#notemsg").val()
+            }
         }).then(function (data) {
+               
+               if (!$("#notemsg").html("")) {
+                alert("please enter a note to save")
+            } else {
+// //Add item in a array
+// for (var i = 0; i < data.note.length; i++) {
+//     $("#notemsg").push(`<li>${data.note[i].body}<button data-id="${data._id}" data-note-id="${data.note[i]._id}" id="delete" class=" red">X</button></li>`)
             // Log the response
             console.log(data);
             // Empty the notes section
-            $("#notemsg" + thisId).empty();
+            $("#notemsg").attr("data-id").empty();
               $("#modal1").modal("hide");
             res.render("/saved")
+            }
         });
-    }
+    
 });
 
 //Delete Note button
@@ -82,7 +86,12 @@ $("#delete").on("click", function () {
         url: "/notes/delete/" + noteId + "/" + articleId
     }).then(function (data) {
         console.log(data)
-          
+          //delete item in array
+          for (var i =0; i < someArray.length; i++)
+   if (someArray[i].name === "Kristian") {
+      someArray.splice(i,1);
+      break;
+   }
         $("#modal1").modal("hide");
         res.render("/saved")
     })
