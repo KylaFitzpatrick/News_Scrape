@@ -3,11 +3,14 @@
         <div class="col s12">
             <div class="container-fluid">
                 <div class="centered">
+                    <br />
+                    <br />
                     <h1>Mongo Scraper</h1>
-                    <p>SF Chronicle Edition</p>
+                    {{!-- <p>SF Chronicle Edition</p> --}}
+                    <img src="/images/sfchronicle.png" class="responsive-img">
                 </div>
             </div>
-            <img src="./images/san-francisco-free-photo-picjumbo-com.jpg" class="responsive-img">
+            <img src="/images/san-francisco-free-photo-picjumbo-com.jpg" class="responsive-img">
 
         </div>
     </div>
@@ -17,7 +20,7 @@
         {{#each article}}
         <div data-id="{{this._id}}" class='row'> 
             <div class='col s12'> 
-                <div class='card black darken-1'> <div class='card-content white-text'> <span class='card-title'>{{this.title}}</span>{{this.summary}} <br /> <a target="_blank" href="{{this.link}}"></a>
+                <div class='card black darken-1'> <div class='card-content white-text'> <span class='card-title'>{{this.title}}</span>{{this.summary}} <br /> <a target="_blank" href="{{this.link}}">{{this.link}}</a>
                 </div> 
                 <div class='card-action'> 
                     <a data-id="{{this._id}}" class='waves-effect waves-light btn save'>Save Article</a>
