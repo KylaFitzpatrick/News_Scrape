@@ -115,17 +115,19 @@ db.Note.create(req.body)
 
 
 // Delete a note
-app.delete("/notes/delete/:note_id/:article_id", function(req, res) {
+app.delete("/notes/delete/:id", function(req, res) {
   // Use the note id to find and delete it
-  db.Note.findOneAndRemove({ "_id": ObjectID(req.params.note_id) }, function(err) {
-    // Log any errors
-    if (err) {
-      console.log(err);
-      res.send(err);
-    }
-    else {
-      db.Article.findOneAndUpdate({ "_id": req.params.article_id }, {$pull: {"notes": ObjectID(req.params.note_id)}})
+  db.Note.findOneAndRemove({ _id: req.params.id })
+    // // Log any errors
+    // if (err) {
+    //   console.log(err);
+    //   res.send(err);
+    // }
+    // else {
+      .then(function(dbNote){
+      return db.Article.findOneAndUpdate({ _id: req.params.id }, {$pull: {note: dbNote._id}}, { new: true })
        // Resolve promise to execute query
+      })
         .then(function(err) {
           // Log any errors
           if (err) {
@@ -137,7 +139,7 @@ app.delete("/notes/delete/:note_id/:article_id", function(req, res) {
             res.send("Note Deleted");
           }
         });
-    }
+    
   });
-});
+
 };
