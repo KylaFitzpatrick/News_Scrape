@@ -1,58 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!--Import Google Icon Font-->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-
-    <!-- Custom CSS -->
-    <link rel="stylesheet" type="text/css" href="/css/styles.css">
-    <title>Mongo Scraper: SF Chronicle Edition</title>
-    
-</head>
+{{>head}}
 
 <body>
-       <nav>
-        <div class="nav-wrapper">
-            <a href="/" class="brand-logo">Mongo Scraper</a>
-            <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-            <ul class="right hide-on-med-and-down navbar-nav">
-                <li><a href="/">Home</a></li>
-                <li><a href="/saved">Saved Articles</a></li>
-                <li><a class="waves-effect waves-light btn scrape">Scrape new articles</a></li>
-                <li><a class="waves-effect waves-light btn clear">Clear articles</a></li>
-            </ul>
-       
-
-    <ul class="sidenav nav" id="mobile-demo">
-        <li><a href="/">Home</a></li>
-        <li><a href="/saved">Saved Articles</a></li>
-        <li><a class="waves-effect waves-light btn scrape">Scrape new articles</a></li>
-        <li><a class="waves-effect waves-light btn clear">Clear articles</a></li>
-    </ul>
-     </div>
-    </nav>
-  {{{body}}}
-  <footer class="page-footer">
-        <div class="footer-copyright">
-            <div class="container">
-                © 2020 Copyright Mongo Scraper: SF Chronicle Edition
-            </div>
-        </div>
-    </footer>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script>$(document).ready(function () {
-            $('.sidenav').sidenav();
-    $('.modal').modal();
-        });
-    </script>
-       
-<script src="/javascript/app.js"></script>
+    {{>nav}}
+    {{{body}}}
+    {{>footer}}
+    {{>footer_scripts}}
 </body>
 
 </html>

@@ -48,5 +48,8 @@ app.get("/", function(req, res) {
         res.render("saved", hbsObject) 
      })
  })
- 
+  // Render 404 page for any unmatched routes
+  app.get("*", function(req, res) {
+    res.render("404");
+  });
 };
