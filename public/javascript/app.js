@@ -1,9 +1,9 @@
 //Active nav button
 
-    // $(".navbar-nav li").click(function(event) {
+    // $(".nav li").click(function(event) {
     //     event.preventDefault()
     //     alert("clicked")
-    //     $("ul.rightli").removeClass("active");
+    //     $(".nav li").removeClass("active");
     //     $(this).addClass("active")
     // });
 
