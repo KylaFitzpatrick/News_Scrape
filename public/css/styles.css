@@ -19,13 +19,14 @@ body {
     height:auto;
     margin:0;
     left: 0px;
-    top: 100px;
-    z-index: auto;
+    top: 0px;
+    z-index: 1;
     position: relative;
     text-align: center;
     color: black;
     
   }
+
 .centered {
     top:30%;
     width:100%;
