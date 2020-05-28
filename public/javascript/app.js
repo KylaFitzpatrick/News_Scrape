@@ -1,12 +1,21 @@
+//Active nav button
+
+    // $(".navbar-nav li").click(function(event) {
+    //     event.preventDefault()
+    //     alert("clicked")
+    //     $("ul.rightli").removeClass("active");
+    //     $(this).addClass("active")
+    // });
 
 //Scrape button
 $(".scrape").on("click", function () {
+    alert("clicked!")
     $.ajax({
         method: "GET",
-        url: "/scrape"
+        url: "/scrape" 
     }).then(function (data) {
         console.log(data)
-
+        res.render("/")
     })
 })
 
@@ -88,12 +97,13 @@ $(document).on("click", ".red", function (event) {
     })
 });
 
+//Clear button
 $(".clear").on("click", function (){
     $.ajax({
-        method: "GET",
+        method: "DELETE",
         url: "/clear"
-    }).then(function (data) {
-        console.log(data)
+    }).then(function() {
         $("#articles").empty();
+        res.render("/")
     })
 })

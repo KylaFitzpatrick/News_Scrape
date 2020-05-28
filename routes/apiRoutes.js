@@ -143,4 +143,21 @@ app.delete("/notes/delete/:id", function(req, res) {
     
   });
 
+  app.delete("/clear", function(req, res) {
+    // Use the article id to find and delete it
+    db.Article.remove({})
+         // Resolve promise to execute query
+        
+          .then(function(err) {
+            // Log any errors
+            if (err) {
+              console.log(err);
+              res.send(err);
+            }
+            else {
+              // Or send the note to the browser
+              res.send("Articles Deleted");
+            }
+          });
+        });
 };
