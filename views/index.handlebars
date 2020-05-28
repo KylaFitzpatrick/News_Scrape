@@ -1,60 +1,59 @@
+<div class="row">
+  <div class="col s12">
+    <div class="container-fluid">
+      <div class="centered">
+        <h1>Mongo Scraper</h1>
+        {{!-- <p>SF Chronicle Edition</p> --}}
+        <img style="height:100px"src="/images/sfchronicle.png" class="responsive-img">
+      </div>
+    </div>
+    <img src="/images/san-francisco-free-photo-picjumbo-com.jpg" class="responsive-img">
 
-    <div class="row">
-        <div class="col s12">
-            <div class="container-fluid">
-                <div class="centered">
-                    <br />
-                    <br />
-                    <h1>Mongo Scraper</h1>
-                    {{!-- <p>SF Chronicle Edition</p> --}}
-                    <img src="/images/sfchronicle.png" class="responsive-img">
-                </div>
-            </div>
-            <img src="/images/san-francisco-free-photo-picjumbo-com.jpg" class="responsive-img">
+  </div>
+</div>
 
+<div id="articles">
+  {{#if article}}
+  {{#each article}}
+  <div data-id="{{this._id}}" class='row'>
+    <div class='col s12'>
+      <div class='card black darken-1'>
+        <div class='card-content white-text'> <span class='card-title'>{{this.title}}</span>{{this.summary}} <br /> <a
+            target="_blank" href="{{this.link}}">{{this.link}}</a>
         </div>
+        <div class='card-action'>
+          <a data-id="{{this._id}}" class='waves-effect waves-light btn save'>Save Article</a>
+        </div>
+      </div>
     </div>
+  </div>
+  {{/each}}
+  {{else}}
+</div>
 
-    <div id="articles">
-        {{#if article}}
-        {{#each article}}
-        <div data-id="{{this._id}}" class='row'> 
-            <div class='col s12'> 
-                <div class='card black darken-1'> <div class='card-content white-text'> <span class='card-title'>{{this.title}}</span>{{this.summary}} <br /> <a target="_blank" href="{{this.link}}">{{this.link}}</a>
-                </div> 
-                <div class='card-action'> 
-                    <a data-id="{{this._id}}" class='waves-effect waves-light btn save'>Save Article</a>
-                    </div> 
-                    </div> 
-                    </div> 
-                    </div>
-                    {{/each}}
-    {{else}}
+<div class="row">
+  <div class="col s12">
+    <div class="card teal darken-1">
+      <div class="card-content white-text">
+        <span class="card-title">
+          <h4>Oops! There are no saved articles.</h4>
+        </span>
+      </div>
     </div>
-    
-      <div class="row">
-    <div class="col s12">
-      <div class="card teal darken-1">
-        <div class="card-content white-text">
-          <span class="card-title"><h4>Oops! There are no saved articles.</h4>
-</span>
+  </div>
+</div>
+<div class="row">
+  <div class="col s12">
+    <div class="card black darken-1">
+      <div class="card-content white-text">
+        <span class="card-title">
+          <h4>What would you like to do?</h4>
+        </span>
+        <h5><a href="/scrape">Try scraping articles</a></h5>
+        <h5><a href="/saved">Go to saved articles</a></h5>
+      </div>
     </div>
-    </div>
-    </div>
-    </div>
-        <div class="row">
-    <div class="col s12">
-      <div class="card black darken-1">
-        <div class="card-content white-text">
-          <span class="card-title"><h4>What would you like to do?</h4>
-</span>
-          <h5><a href="/scrape">Try scraping articles</a></h5>
-          <h5><a href="/saved">Go to saved articles</a></h5>
-    </div>
-    </div>
-    </div>
-    </div>
-   
-    {{/if}}
-  
+  </div>
+</div>
 
+{{/if}}
