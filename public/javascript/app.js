@@ -1,4 +1,4 @@
-
+// $(document).ready(function() {
 //Active nav button
 
     // $(".nav li").click(function(event) {
@@ -26,6 +26,7 @@ console.log(error)
 
 //Save article
 $(".save").on("click", function () {
+    // event.preventDefault();
     var thisId = $(this).attr("data-id");
     $.ajax({
         method: "PUT",
@@ -124,3 +125,4 @@ $(".clear").on("click", function (){
     console.log(error)
     });
 })
+// })

@@ -1,6 +1,8 @@
 var db = require("../models");
 var axios = require("axios");
 var cheerio = require("cheerio");
+var mongoose = require("mongoose");
+mongoose.set('useFindAndModify', false);
 module.exports = function(app) {
 
 // A GET route for scraping the SF chronicle website
@@ -58,24 +60,22 @@ db.Article.find({})
 //Save article
 app.put("/articles/save/:id", function(req, res){
   db.Article.findOneAndUpdate({_id: req.params.id}, {saved: true})
-  .then(function(error, document){
-      if(err){
-          console.log(err);
-      }else{
-          res.send(document)
-      }
+  .then(function (dbArticle) {
+    res.json(dbArticle);
+  })
+  .catch(function (err) {
+    res.json(err)
   })
 })
 //Delete an article
 app.put("/articles/delete/:id", function(req, res){
 db.Article.findOneAndUpdate({_id: req.params.id}, {saved:false, notes: []})
-.then(function(error, document){
-  if(error){
-      console.log(error)
-  }else{
-      res.send(document)
-  }
-})
+  .then(function (dbArticle) {
+    res.json(dbArticle);
+  })
+  .catch(function (err) {
+    res.json(err)
+  })
 })
 // Route for grabbing a specific Article by id, populate it with it's note
 app.get("/articles/:id", function (req, res) {
