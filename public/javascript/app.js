@@ -1,3 +1,4 @@
+
 //Active nav button
 
     // $(".nav li").click(function(event) {
@@ -15,8 +16,12 @@ $(".scrape").on("click", function () {
         url: "/scrape" 
     }).then(function (data) {
         console.log(data)
-        res.render("/")
-    })
+        // res.render("/")
+    
+    location.reload()
+}).catch(function(error){
+console.log(error)
+});
 })
 
 //Save article
@@ -26,9 +31,10 @@ $(".save").on("click", function () {
         method: "PUT",
         url: "/articles/save/" + thisId
     }).then(function (data) {
-        console.log(data)
-        res.render("/")
-    })
+        location.reload()
+    }).catch(function(error){
+    console.log(error)
+    });
 })
 
 $(".modal-trigger").on("click", function () {
@@ -41,10 +47,14 @@ $(".modal-trigger").on("click", function () {
         console.log(data)
         $("#title").html(data.title.trim())
         for (var i = 0; i < data.note.length; i++) {
-            $("#list").append(`<li>${data.note[i].body}<button data-id="${data._id}" data-note-id="${data.note[i]._id}" id="delete" class="red">X</button></li>`)
+            $("#list").append(`<li style="font-size:20px">${data.note[i].body}<a style="float: right;" data-id="${data._id}" data-note-id="${data.note[i]._id}" id="delete" class="btn red">X</a></li><hr />`)
         }
+        location.reload()
+    }).catch(function(error){
+    console.log(error)
+    });
     })
-})
+
 //Delete Article button
 $(".delete").on("click", function () {
     var thisId = $(this).attr("data-id");
@@ -52,8 +62,10 @@ $(".delete").on("click", function () {
         method: "PUT",
         url: "/articles/delete/" + thisId
     }).then(function (data) {
-        res.render("/saved")
-    })
+        location.reload()
+    }).catch(function(error){
+    console.log(error)
+    });
 });
 
 //Save Note button
@@ -76,9 +88,10 @@ $(".savenote").on("click", function () {
             // Empty the notes section
             $("#notemsg").val("");
               $("#modal1").modal("hide");
-            res.render("/saved")
-            
-        });
+              location.reload()
+}).catch(function(error){
+console.log(error)
+});
     }
 });
 
@@ -93,8 +106,10 @@ $(document).on("click", ".red", function (event) {
     }).then(function (data) {
         console.log(data)
         $("#modal1").hide();
-        res.render("/saved")
-    })
+        location.reload()
+    }).catch(function(error){
+    console.log(error)
+    });
 });
 
 //Clear button
@@ -104,6 +119,8 @@ $(".clear").on("click", function (){
         url: "/clear"
     }).then(function() {
         $("#articles").empty();
-        res.render("/")
-    })
+        location.reload()
+    }).catch(function(error){
+    console.log(error)
+    });
 })

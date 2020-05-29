@@ -3,14 +3,14 @@ var axios = require("axios");
 var cheerio = require("cheerio");
 module.exports = function(app) {
 
-// A GET route for scraping the echoJS website
+// A GET route for scraping the SF chronicle website
 app.get("/scrape", function (req, res) {
-// First, we grab the body of the html with axios
+// Get body of the html with axios
 axios.get("https://www.sfchronicle.com/culture/travel/").then(function (response) {
-  // Then, we load that into cheerio and save it to $ for a shorthand selector
+  // Load data in cheerio and save it to $ for a shorthand selector
   var $ = cheerio.load(response.data);
 
-  // Now, we grab every ul within an article tag, and do the following:
+  // Grab every ul within an article tag, and do the following:
   $("ul li.dynamic-river__item").each(function (i, element) {
     // Save an empty result object
     var result = {};
@@ -79,9 +79,7 @@ db.Article.findOneAndUpdate({_id: req.params.id}, {saved:false, notes: []})
 })
 // Route for grabbing a specific Article by id, populate it with it's note
 app.get("/articles/:id", function (req, res) {
-// TODO
-// ====
-// Finish the route so it finds one article using the req.params.id,
+// Find one article using the req.params.id,
 db.Article.findOne({ _id: req.params.id })
   // and run the populate method with "note",
   .populate("note")
@@ -96,8 +94,6 @@ db.Article.findOne({ _id: req.params.id })
 
 // Route for saving/updating an Article's associated Note
 app.put("/notes/save/:id", function (req, res) {
-// TODO
-// ====
 // save the new note that gets posted to the Notes collection
 
 db.Note.create(req.body)
@@ -119,12 +115,6 @@ db.Note.create(req.body)
 app.delete("/notes/delete/:id", function(req, res) {
   // Use the note id to find and delete it
   db.Note.findOneAndRemove({ _id: req.params.id })
-    // // Log any errors
-    // if (err) {
-    //   console.log(err);
-    //   res.send(err);
-    // }
-    // else {
       .then(function(dbNote){
       return db.Article.findOneAndUpdate({ _id: req.params.id }, {$pull: {note: dbNote._id}}, { new: true })
        // Resolve promise to execute query
