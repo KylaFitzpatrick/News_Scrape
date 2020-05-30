@@ -1,15 +1,16 @@
 {{>nav}}
-<div class="container-fluid img">
+<div class="container-fluid">
   <div class="row">
       <div class="parallax-container">
         <div class="centered">
           <h1>Mongo Scraper</h1>
           <img style="height:100px" src="/images/sfchronicle.png" class="responsive-img">
         </div>
-        <div class="parallax"><img src="/images/san-francisco-free-photo-picjumbo-com.jpg" class="responsive-img">
+        <div class="parallax"><img src="/images/sfbridge.png" >
         </div>
     </div>
   </div>
+    </div>
   <div class="container-fluid">
     <div id="articles">
       {{#if article}}
@@ -17,8 +18,7 @@
       <div data-id="{{this._id}}" class='row'>
         <div class='col s12'>
           <div class='card black darken-1'>
-            <div class='card-content white-text'> <span class='card-title'>{{this.title}}</span>{{this.summary}} <br />
-              <a target="_blank" href="{{this.link}}">{{this.link}}</a>
+            <div class='card-content white-text'> <span class='card-title'><a target="_blank" href="{{this.link}}">{{this.title}}</a></span>{{this.summary}} <br />
             </div>
             <div class='card-action'>
               <a data-id="{{this._id}}" class='waves-effect waves-light btn save'>Save Article</a>

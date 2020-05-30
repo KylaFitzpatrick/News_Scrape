@@ -42,9 +42,6 @@ $(".modal-trigger").on("click", function () {
         for (var i = 0; i < data.note.length; i++) {
             $("#list").append(`<li style="font-size:20px">${data.note[i].body}<a style="float: right;" data-id="${data._id}" data-note-id="${data.note[i]._id}" id="delete" class="btn red">X</a></li><hr />`)
         }
-        location.reload()
-    }).catch(function (error) {
-        console.log(error)
     });
 })
 
