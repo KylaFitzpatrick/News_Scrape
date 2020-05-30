@@ -18,7 +18,7 @@ h4, h5{
 }
 .container-fluid{
     width: 100%;
-    height:auto;
+    /* height:auto; */
     margin:0;
     left: 0px;
     top: 0px;
