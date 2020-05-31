@@ -1,31 +1,31 @@
 # News_Scrape
 
-# Burger
-
 ### About the app (i.e. what is it doing and why)
- This is burger logger app with MySQL, Node, Express, Handlebars and a homemade ORM. This app uses MVC design pattern Node and MySQL to query and route data in your app, and Handlebars to generate your HTML.
+ This is mongo scraper app with MongoDB, Node, Express, Handlebars, Mongoose and Cheerio. 
 
 ### High-level overview of how the app is organized
 
-Eat-Da-Vegan- Burger! is a restaurant app that lets users input the names of burgers they'd like to eat.
-
-Whenever a user submits a burger's name, your app will display the burger on the left side of the page -- waiting to be devoured.
-
-Each burger in the waiting area also has a Devour it! button. When the user clicks it, the burger will move to the right side of the page.
-
-The app will store every burger in a database, whether devoured or not.
+Mongo Scraper is an app that scrapes articles from the San Francsico Chronicle. Users can save the article and add notes the the save article. Save articles can also be deleted and cleared.
 
 ### Instructions on how to run the app
 
-Run steps 1-4 to play the Eat-Da-Vegan-Burger:
+Run steps 1-4 to play the Mongo Scraper:
 
-1. Go to burger app
+1. Go to Mongo Scraper app
 
-2. Enter burger and click Submit button
+2. Click Scrape Articles button
 
-3. Click Devour button to eat the burger
+User options:
 
-4. Click Delete button to burger
+- Click Save article to save article
+
+- Click Delete articl button to delete article
+
+- Click add note to saved article to add note
+
+- Click Clear Articles button to clear all scraped articles
+
+
 
 ### Contain a link to a deployed version of the app
 
@@ -37,4 +37,4 @@ I used node, express, express handlebars, cheerio, and mongodb.
 
 ### State your role in the app development
 
-My role in development was using node, express, express handlebars, cheerio, and mongodb to generate an app to save articles from the San Francsico Chronicle.  
+My role in development was using node, express, express handlebars, cheerio, mongoose, and mongodb to generate an app to save articles from the San Francsico Chronicle.  

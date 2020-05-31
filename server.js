@@ -2,7 +2,8 @@ var express = require("express");
 var logger = require("morgan");
 var mongoose = require("mongoose");
 var exphbs = require("express-handlebars");
-
+var dotenv = require('dotenv');
+dotenv.config()
 
 var PORT = 3000;
 
