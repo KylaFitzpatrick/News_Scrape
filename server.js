@@ -2,6 +2,7 @@ var express = require("express");
 var logger = require("morgan");
 var mongoose = require("mongoose");
 var exphbs = require("express-handlebars");
+var path = require("path");
 var dotenv = require('dotenv');
 dotenv.config()
 
@@ -30,7 +31,8 @@ mongoose.connect(MONGODB_URI);
 app.engine(
     "handlebars",
     exphbs({
-      defaultLayout: "main"
+      defaultLayout: "main",
+      partialsDir: path.join(__dirname, "/views/layouts/partials")
     })
   );
   app.set("view engine", "handlebars");
