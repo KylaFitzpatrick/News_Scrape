@@ -3,10 +3,10 @@ var logger = require("morgan");
 var mongoose = require("mongoose");
 var exphbs = require("express-handlebars");
 var path = require("path");
-var dotenv = require('dotenv');
-dotenv.config()
+var PORT = process.env.PORT || 3000;
+require('dotenv').config();
 
-var PORT = 3000;
+// var PORT = 3000;
 
 // Initialize Express
 var app = express();
@@ -16,7 +16,7 @@ var app = express();
 // Use morgan logger for logging requests
 app.use(logger("dev"));
 // Parse request body as JSON
-app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 // Make public a static folder
 app.use(express.static("public"));
@@ -40,7 +40,7 @@ app.engine(
   // Routes
   require("./routes/apiRoutes")(app);
   require("./routes/htmlRoutes")(app);
-
+ 
 // Start the server
 app.listen(PORT, function () {
   console.log("App running on port " + PORT + "!");
