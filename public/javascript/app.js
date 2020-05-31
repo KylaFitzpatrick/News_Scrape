@@ -1,7 +1,6 @@
 
 //Scrape button
 $(".scrape").on("click", function () {
-    alert("clicked!")
     $.ajax({
         method: "GET",
         url: "/scrape"
@@ -16,7 +15,6 @@ $(".scrape").on("click", function () {
 
 //Save article
 $(".save").on("click", function () {
-    // event.preventDefault();
     var thisId = $(this).attr("data-id");
     $.ajax({
         method: "PUT",
@@ -71,8 +69,6 @@ $(".savenote").on("click", function () {
                 body: $("#notemsg").val()
             }
         }).then(function (data) {
-
-
             // Log the response
             console.log(data);
             // Empty the notes section
@@ -88,7 +84,6 @@ $(".savenote").on("click", function () {
 //Delete Note button
 $(document).on("click", ".red", function (event) {
     event.preventDefault()
-
     var noteId = $(this).attr("data-note-id")
     $.ajax({
         method: "DELETE",
