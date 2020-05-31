@@ -24,7 +24,7 @@ app.get("/", function(req, res) {
       // console.log("article!", hbsObject.article[i]._id)
       // console.log("article!", hbsObject)
         res.render("index", hbsObject) 
-      
+        res.json(path.join(__dirname, "public/index.html"));
       })
   })
  app.get("/saved", function(req,res){
