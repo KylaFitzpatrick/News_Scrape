@@ -31,8 +31,7 @@ mongoose.connect( process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines
 app.engine(
     "handlebars",
     exphbs({
-      defaultLayout: "main",
-      partialsDir: path.join(__dirname, "/views/layouts/partials")
+      defaultLayout: "main" 
     })
   );
   app.set("view engine", "handlebars");
