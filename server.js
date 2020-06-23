@@ -4,9 +4,7 @@ var mongoose = require("mongoose");
 var exphbs = require("express-handlebars");
 var path = require("path");
 var PORT = process.env.PORT || 3000;
-// require('dotenv').config();
 
-// var PORT = 3000;
 
 // Initialize Express
 var app = express();

@@ -1,4 +1,5 @@
 # News_Scrape
+![Mongo Scraper](public/images/mongo-scraper.png)
 
 ### About the app (i.e. what is it doing and why)
  This is mongo scraper app with MongoDB, Node, Express, Handlebars, Mongoose and Cheerio. 
