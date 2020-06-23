@@ -1,9 +1,5 @@
-<<<<<<< HEAD
-# News_Scrape
-![Mongo Scraper](public/images/mongo-scraper.png)
-=======
-# SF_Scraper
->>>>>>> 864bc740fbcd360844a3b6c258c97a8306e01e4d
+# SF Scraper
+![SF Scraper](public/images/mongo-scraper.png)
 
 ### About the app (i.e. what is it doing and why)
  This is mongo scraper app with MongoDB, Node, Express, Handlebars, Mongoose and Cheerio. 
