@@ -1,5 +1,9 @@
+<<<<<<< HEAD
 # News_Scrape
 ![Mongo Scraper](public/images/mongo-scraper.png)
+=======
+# SF_Scraper
+>>>>>>> 864bc740fbcd360844a3b6c258c97a8306e01e4d
 
 ### About the app (i.e. what is it doing and why)
  This is mongo scraper app with MongoDB, Node, Express, Handlebars, Mongoose and Cheerio. 
@@ -10,7 +14,7 @@ Mongo Scraper is an app that scrapes articles from the San Francsico Chronicle. 
 
 ### Instructions on how to run the app
 
-Run steps 1-4 to play the Mongo Scraper:
+Steps for running the Mongo Scraper:
 
 1. Go to Mongo Scraper app
 
@@ -30,7 +34,7 @@ User options:
 
 ### Contain a link to a deployed version of the app
 
-Repository: https://github.com/KylaFitzpatrick/News_Scrape
+https://sf-scraper.herokuapp.com/
 
 ### Clearly list the technologies used in the app
 
